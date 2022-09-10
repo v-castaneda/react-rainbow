@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
-import './App.css';
 import ColorBlock from './components/ColorBlock';
+import ColorForm from './components/ColorForm';
+import './App.css';
 
 function App(){
-    let colors = [
+    let [colors, setColors] = useState([
         'violet', 'blue', 
         'lightblue', 'green', 
         'greenyellow', 'yellow', 
         'orange', 'red'
-      ]
+    ])
 
     let colorMap = colors.map((color, i) => {
         return (
-            <ColorBlock color={color} />
+            <ColorBlock key={i} color={color} />
         )
     })
 
     return (
         <div className="App">
-            {colors.map((color, i) => 
-                <ColorBlock key={i} color={color} />
-            )}
+          {colorMap}
+          <ColorForm />
         </div>
     )
 }
